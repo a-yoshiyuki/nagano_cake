@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  
+
   namespace :admin do
-    get 'homes/top'
+    get 'items/index'
+    get 'items/show'
+    get 'items/new'
+    get 'items/edit'
+    resources :items
+  end
+  namespace :admin do
+    root 'homes#top'
   end
   devise_for :admins
   devise_for :customers
