@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>DwcWebAppDev2AssignmentBookers2Ver2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <h3 class="title">ながのCAKE</h3>
+        </nav>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if admin_signed_in? %>
+              <li><%=link_to " 商品一覧", class: "glyphicon glyphicon-home home"%></li>
+              <li><%=link_to " 会員一覧",  class: "glyphicon glyphicon-user"%></li>
+              <li><%=link_to " 注文履歴一覧",  class: "glyphicon glyphicon-book"%></li>
+              <li><%=link_to " ジャンル一覧",  class: "glyphicon glyphicon-log-out"%></li>
+              <li><%=link_to " ログアウト",  class: "glyphicon glyphicon-log-out"%></li>
+            <% else %>
+              <li><%=link_to " Home", class: "glyphicon glyphicon-home home"%></li>
+              <li><%=link_to " About",  class: "glyphicon glyphicon-link about"%></li>
+              <li><%=link_to " sign up",  class: "glyphicon glyphicon-edit sign_up"%></li>
+              <li><%=link_to " login", class: "glyphicon glyphicon-log-in sign_in"%></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container">
+  	    <div class="row">
+    	    <div class="col-xs-3 col-xs-offset-9">
+    		    <p>CopyRight Infratop.inc</p>
+    	    </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
