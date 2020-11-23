@@ -18,16 +18,16 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if admin_signed_in? %>
-              <li><%=link_to " 商品一覧", class: "glyphicon glyphicon-home home"%></li>
-              <li><%=link_to " 会員一覧",  class: "glyphicon glyphicon-user"%></li>
-              <li><%=link_to " 注文履歴一覧",  class: "glyphicon glyphicon-book"%></li>
-              <li><%=link_to " ジャンル一覧",  class: "glyphicon glyphicon-log-out"%></li>
-              <li><%=link_to " ログアウト",  class: "glyphicon glyphicon-log-out"%></li>
+              <li><%=link_to "商品一覧",admin_items_index_path %></li>
+              <li><%=link_to "会員一覧" %></li>
+              <li><%=link_to "注文履歴一覧" %></li>
+              <li><%=link_to "ジャンル一覧" %></li>
+              <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
             <% else %>
-              <li><%=link_to " Home", class: "glyphicon glyphicon-home home"%></li>
-              <li><%=link_to " About",  class: "glyphicon glyphicon-link about"%></li>
-              <li><%=link_to " sign up",  class: "glyphicon glyphicon-edit sign_up"%></li>
-              <li><%=link_to " login", class: "glyphicon glyphicon-log-in sign_in"%></li>
+              <li><%=link_to "About", admin_root_path %></li>
+              <li><%=link_to "商品一覧", admin_items_index_path %></li>
+              <li><%=link_to "新規登録", new_admin_registration_path %></li>
+              <li><%=link_to "ログイン", new_admin_session_path %></li>
             <% end %>
           </ul>
         </nav>

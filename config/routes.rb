@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     root 'homes#top'
+    get '/admins/sign_out' => 'devise/sessions#destroy'
   end
   devise_for :admins
   devise_for :customers
