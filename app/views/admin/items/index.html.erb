@@ -26,11 +26,14 @@
   <tbody>
   	<% @items.each do |f| %>
   		<tr>
+  			<td></td>
   			<td>
   				<%= f.id %>
   			</td>
   			<td>
-  				<%= f.name %>
+  				<%= link_to admin_item_path(f) do %>
+  					<%= f.name %>
+  				<% end %>
   			</td>
   			<td>
   				<%= f.price %>

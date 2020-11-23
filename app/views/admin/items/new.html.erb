@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
 		<div class="col-xs-10 col-xs-offset-2">
-      <h1>商品登録</h1>
+      <h1>商品新規登録</h1>
     </div>
   </div>
   <%= form_with model: @item, url: admin_items_path, local: true do |f| %>
@@ -11,7 +11,7 @@
 		            <h5>商品画像</h5>
                 <div class="form-group has-icon">
                   <label class="control-label sr-only" for="inputEmail">ItemImage</label>
-                  <%= f.attachment_field :image_id %>
+                  <%= f.attachment_field :image %>
                 </div>
               </div>
               <div class="col-xs-3 col-xs-offset-1"></div>
@@ -47,7 +47,7 @@
         <div class="row">
           <div class="col-xs-3"></div>
 		        <div class="col-xs-4 col-xs-offset-1">
-              <%= f.submit "登録", class:"btn btn-primary col-xs-12" %>
+              <%= f.submit "新規登録", class:"btn btn-primary col-xs-12" %>
             </div>
             <div class="col-xs-3 col-xs-offset-1"></div>
         </div>
