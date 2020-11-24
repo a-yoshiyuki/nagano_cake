@@ -1,2 +1,72 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+		<div class="col-xs-10 col-xs-offset-2">
+      <h1>の会員情報</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <table>
+        <tr>
+          <th>
+            会員ID
+          </th>
+          <th>
+            <%= @customer.id %>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            氏名
+          </td>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td>
+            郵便番号
+          </td>
+          <td>
+            <%= @customer.postal_code %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            住所
+          </td>
+          <td>
+            <%= @customer.address %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            電話番号
+          </td>
+          <td>
+            <%= @customer.telephone_number %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            メールアドレス
+          </td>
+          <td>
+            <%= @customer.email %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+	  <div class="col-xs-3"></div>
+	  <div class="col-xs-4 col-xs-offset-1">
+		  編集する｜注文履歴一覧を見る
+		  </div>
+	  <div class="col-xs-3 col-xs-offset-1"></div>
+  </div>
+</div>
