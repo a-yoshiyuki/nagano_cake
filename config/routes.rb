@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    resources :orders
+  end
+  namespace :public do
+    resources :cart_items
+  end
+  namespace :public do
+    resources :end_users
+  end
+  namespace :public do
+    resources :items
+  end
+  namespace :public do
+    root 'homes#top'
+    get 'homes/about'
+  end
   namespace :admin do
    resources :orders
   end
