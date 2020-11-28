@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    admin_root_path(resource)
+    case resource
+      when Admin
+        admin_root_path(resource)
+      when Customer
+        public_root_path(resource)
+    end
   end
 
   protect_from_forgery with: :exception
