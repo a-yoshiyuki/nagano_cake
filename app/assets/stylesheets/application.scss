@@ -29,3 +29,20 @@
  text-align: center;
  font-size: 30px;
 }
+
+.about_img {
+ text-align: center;
+}
+
+.main_visual {
+ width: 500px;
+ height: 300px;
+ background-size: cover;
+ background-position: center;
+ background-image: url('りんご.jpeg');
+}
+
+.main_visual_content {
+ padding: 105px 80px;
+ color: black;
+}

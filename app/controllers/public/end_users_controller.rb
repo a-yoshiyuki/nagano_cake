@@ -1,7 +1,6 @@
 class Public::EndUsersController < ApplicationController
   def show
      @customer = Customer.find(params[:id])
-     @customer = Customer.new
   end
 
   def edit
