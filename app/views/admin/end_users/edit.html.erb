@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
 		<div class="col-xs-10 col-xs-offset-2">
-      <h1>さんの会員情報編集</h1>
+      <h3><%= @customer.full_name %>さんの会員情報編集</h3>
     </div>
   </div>
   <%= form_with model: @customer, url: admin_end_user_path, local: true do |f| %>
@@ -10,7 +10,7 @@
         <h5>会員ID</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.id, class:"col-xs-12" %>
+        <%= @customer.id %>
       </div>
       <div class="col-xs-3 col-xs-offset-1"></div>
     </div>
@@ -20,10 +20,10 @@
         <h5>氏名</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.text_field :first_name, class:"col-xs-12" %>
+        <%= f.text_field :first_name %>
       </div>
       <div class="col-xs-3 col-xs-offset-1">
-          <%= f.text_field :last_name, class:"col-xs-12" %>
+          <%= f.text_field :last_name %>
       </div>
     </div>
 
@@ -32,10 +32,10 @@
         <h5>フリガナ</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.text_field :first_name_kana, class:"col-xs-12" %>
+        <%= f.text_field :first_name_kana %>
       </div>
       <div class="col-xs-3 col-xs-offset-1">
-        <%= f.text_field :last_name_kana, class:"col-xs-12" %>
+        <%= f.text_field :last_name_kana %>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
         <h5>郵便番号</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.text_field :postal_code, class:"col-xs-12" %>
+        <%= f.text_field :postal_code %>
       </div>
       <div class="col-xs-3 col-xs-offset-1"></div>
     </div>
@@ -53,8 +53,8 @@
       <div class="col-xs-3">
         <h5>住所</h5>
       </div>
-		  <div class="col-xs-9 col-xs-offset-1">
-        <%= f.text_field :address, class:"col-xs-12" %>
+		  <div class="col-xs-4 col-xs-offset-1">
+        <%= f.text_field :address %>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
         <h5>電話番号</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.text_field :telephone_number, class:"col-xs-12" %>
+        <%= f.text_field :telephone_number %>
       </div>
       <div class="col-xs-3 col-xs-offset-1"></div>
     </div>
@@ -73,7 +73,7 @@
         <h5>メールアドレス</h5>
       </div>
 		  <div class="col-xs-4 col-xs-offset-1">
-        <%= f.text_field :email, class:"col-xs-12" %>
+        <%= f.text_field :email %>
       </div>
       <div class="col-xs-3 col-xs-offset-1"></div>
     </div>
