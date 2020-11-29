@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    resources :orders
+    resources :orders do
+      collection do
+        get :complete
+        get :confirmation
+        post :thanks
+      end
+    end
   end
   namespace :public do
     resources :cart_items

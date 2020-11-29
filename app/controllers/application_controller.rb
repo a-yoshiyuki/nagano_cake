@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
      when Admin
       admin_orders_path
      when Customer
-      public_end_user_path(@customer)
+      public_end_user_path(resource)
     end
   end
 
