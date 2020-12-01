@@ -3,6 +3,7 @@ class Public::EndUsersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
   end
 
   def unsubscribe
