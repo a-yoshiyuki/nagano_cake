@@ -24,7 +24,7 @@
               <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
             <% elsif customer_signed_in? %>
-              <li class= "welcome">ようこそ、<%= current_customer.full_name %>さん！</li>
+              <p class="navbar-text">ようこそ、<%= current_customer.full_name %>さん！</p>
               <li><%=link_to "マイページ", public_end_user_path(current_customer) %></li>
               <li><%=link_to "商品一覧", public_items_path %></li>
               <li><%=link_to "カート",  public_cart_items_path(current_customer) %></li>
