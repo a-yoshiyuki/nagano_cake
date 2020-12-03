@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :cart_items, dependent: :destroy
+
   def full_name
     self.first_name + "　" + self.last_name
   end
@@ -11,7 +13,7 @@ class Customer < ApplicationRecord
   def full_name_kana
     return self.first_name_kana + "　" + self.last_name_kana
   end
-  
-  
+
+
 
 end
