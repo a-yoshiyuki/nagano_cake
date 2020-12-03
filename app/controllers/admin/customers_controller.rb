@@ -1,4 +1,4 @@
-class Admin::EndUsersController < ApplicationController
+class Admin::CustomersController < ApplicationController
   def index
     @customers = Customer.page(params[:page]).reverse_order
     @customer = Customer.new
@@ -18,7 +18,7 @@ class Admin::EndUsersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
-    redirect_to admin_end_user_path(@customer)
+    redirect_to admin_customer_path(@customer)
   end
 
 
