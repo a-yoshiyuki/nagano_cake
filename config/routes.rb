@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :cart_items
   end
   namespace :public do
-    resources :end_users
+    resources :customers
   end
   namespace :public do
     resources :items
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
    resources :orders
   end
   namespace :admin do
-    resources :end_users
+    resources :customers
   end
   namespace :admin do
     resources :items
