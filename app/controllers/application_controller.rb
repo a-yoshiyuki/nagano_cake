@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_up_path_for(resource)
-    admin_items_path(resource)
+    case resource
+     when Admin
+      admin_items_path(resource)
+     when Customer
+      public_customer_path(resource)
+    end
   end
 
   def after_sign_out_path_for(resource)
