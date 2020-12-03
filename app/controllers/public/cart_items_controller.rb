@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @cart_items = CartItem.find(cart_item_params)
+    @costmer = current_customer
+    @cart_items = @costmer.cart_items
     @cart_item = CartItem.new
   end
 
