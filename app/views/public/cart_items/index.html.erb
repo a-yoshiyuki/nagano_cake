@@ -21,13 +21,14 @@
 					  </tr>
 			  	  <tr>
 						  <td>
-						  	<%= attachment_image_tag (f), :item_image, :fill, 40, 40 %>
+						  	<%= attachment_image_tag (f.item), :image, :fill, 40, 40 %>
 						  	<%= f.item.name %>
 						  </td>
 						  <td>
 						  	<%= f.item.syouhizei %>
 						  </td>
 						  <td>
+						  	<% f.amount %>
 						  </td>
 						  <td>
 						  </td>
