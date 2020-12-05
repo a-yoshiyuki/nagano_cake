@@ -21,8 +21,8 @@
 					  </tr>
 			  	  <tr>
 						  <td>
-						  	<%= attachment_image_tag (f.item), :image, :fill, 40, 40 %>
-						  	<%= f.item.name %>
+						  	<%= attachment_image_tag (f.item), :image, size: "50x50", fallback: "no_image.jpg" %>
+						  	<span><%= f.item.name %></span>
 						  </td>
 						  <td>
 						  	<%= f.item.syouhizei %>
