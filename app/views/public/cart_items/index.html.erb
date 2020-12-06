@@ -18,8 +18,8 @@
 							<th>数量</th>
 							<th>小計</th>
 							<th></th>
-					  </tr>
-			  	  <tr>
+					</tr>
+			  	  　<tr>
 						  <td>
 						  	<%= attachment_image_tag (ci.item), :image, size: "50x50", fallback: "no_image.jpg" %>
 						  	<span><%= ci.item.name %></span>
@@ -28,7 +28,7 @@
 						  	<%= ci.item.syouhizei %>
 						  </td>
 						  <td>
-						  	<%= form_with model: CartItem.new, url: public_cart_items_path, local: true do |f| %>
+						  	<%= form_with model: ci, url: public_cart_item_path(ci), methed: :patch, local: true do |f| %>
 						  		<%= f.select :amount, [1,2,3,4,5,6,7,8,9,10], :selected=>ci.amount %>
 						  		<%= f.submit "変更", class:"btn btn-success" %>
 						  	<% end %>
@@ -37,7 +37,7 @@
 						  </td>
 						  <td>
 						  </td>
-					  </tr>
+					</tr>
 					<% end %>
 	     	</tbody>
 	  	</table>
@@ -52,18 +52,7 @@
   	    <tbody>
     	  <tr>
       		<td>
-        	　配送先
-      		</td>
-      		<td>
-        	  一覧を見る
-      		</td>
-      	  </tr>
-      	  <tr>
-      		<td>
-        	　注文履歴
-      		</td>
-      		<td>
-        	  一覧を見る
+        	　<%= link_to "買い物を続ける", public_items_path, class:"btn btn-primary" %>
       		</td>
     	  </tr>
   		</tbody>

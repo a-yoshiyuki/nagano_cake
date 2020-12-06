@@ -18,6 +18,12 @@ class Public::CartItemsController < ApplicationController
     redirect_to public_cart_items_path
   end
 
+  def update
+    @cart_items = CartItem.find(params[:id])
+    @cart_items.update(cart_item_params)
+    redirect_to public_cart_items_path(@cart_items)
+  end
+
   private
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount)
