@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   namespace :public do
     resources :cart_items
+    get '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
   end
   namespace :public do
     resources :customers
