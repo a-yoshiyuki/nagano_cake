@@ -8,7 +8,7 @@
   		<%= link_to public_item_path(f) do %>
   		<%= f.name %>
   		<% end %>
-  		<%= f.price %>
+  		￥<%= f.price.to_s(:delimited) %>
 		<% end %>
 		<%= paginate @items %>
   </tbody>

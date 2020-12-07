@@ -6,9 +6,6 @@ class CartItem < ApplicationRecord
   def syoukei
     (self.item.price * 1.1 * self.amount).round(0)
   end
-  
-  def goukei
-    
-  end
+
 
 end
