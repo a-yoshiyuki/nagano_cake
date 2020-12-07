@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     end
   end
   namespace :public do
-    resources :cart_items
-    get '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
+    resources :cart_items do
+      collection do
+        delete :destroy_all
+      end
+    end
   end
   namespace :public do
     resources :customers

@@ -31,9 +31,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    @costmer = current_customer
-    @cart_items = @costmer.cart_items
-    @cart_items.where(cart_items.all).destroy_all
+    @cart_items = CartItem.where(params[:id])
+    CartItem.destroy_all
     redirect_to public_cart_items_path, notice: "カート内の商品を全て削除しました。"
   end
 
