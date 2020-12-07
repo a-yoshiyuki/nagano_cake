@@ -20,7 +20,7 @@
         <tr>
           <td>
             <div class= "item_price">
-              ￥<%= @item.syouhizei %>（税込）
+              ￥<%= @item.syouhizei.to_s(:delimited) %>（税込）
             </div>
           </td>
         </tr>
