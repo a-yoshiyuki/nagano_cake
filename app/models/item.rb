@@ -7,6 +7,4 @@ class Item < ApplicationRecord
     (self.price * 1.1).round(0)
   end
 
-  
-
 end
