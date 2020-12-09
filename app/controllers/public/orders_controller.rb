@@ -3,6 +3,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirmation
+    @payment = Order.new
   end
 
   def complete
