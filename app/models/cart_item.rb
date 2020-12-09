@@ -7,5 +7,4 @@ class CartItem < ApplicationRecord
     (self.item.price * 1.1 * self.amount).round(0)
   end
 
-
 end
