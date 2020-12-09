@@ -17,7 +17,12 @@ Rails.application.routes.draw do
     end
   end
   namespace :public do
-    resources :customers
+    resources :customers do
+      collection do
+        get :unsubscribe
+        patch :withdraw
+      end
+    end
   end
   namespace :public do
     resources :items
