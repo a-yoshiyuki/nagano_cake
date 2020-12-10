@@ -34,9 +34,12 @@ class Public::OrdersController < ApplicationController
     def show
     end
 
+    def thanks
+    end
+
   private
     def order_params
-      params.require(:order).permit(:customer_id, :payment)
+      params.require(:order).permit(:customer_id, :payment, :address, :postal_code)
     end
 
 end
