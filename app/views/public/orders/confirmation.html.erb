@@ -34,7 +34,35 @@
       				  ￥<%= cart_item.syoukei.to_s(:delimited) %>
       				</td>
       			　</tr>
-			  <% end %>
+              <% end %>
+		    </tbody>
+		  </table>
+		  <table class="table table-bordered">
+		    <tbody>
+		      <tr>
+		        <td>
+                  送料
+		        </td>
+		        <td>
+		          800円
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		          商品合計
+		        </td>
+		        <td>
+                  ￥<%= @cart_item_price.to_s(:delimited) %>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		          請求金額
+		        </td>
+		        <td>
+                  ￥<%= @total_price.to_s(:delimited) %>
+		        </td>
+		      </tr>
 		    </tbody>
 		  </table>
 	  </div>

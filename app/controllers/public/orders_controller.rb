@@ -10,7 +10,19 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.shipping = 0
       @order.status = 0
-      
+
+      @costmer = current_customer
+      @cart_items = @costmer.cart_items
+      @cart_item = CartItem.new
+      @cart_item_price = 0
+
+      current_customer.cart_items.each do |price|
+        @cart_item_price += (price.amount * price.item.price * 1.1).round(0)
+      end
+
+      @total_price = 0
+      @total_price += (@cart_item_price + 800 )
+
     end
 
     def complete
