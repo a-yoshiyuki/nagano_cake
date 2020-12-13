@@ -92,14 +92,8 @@
 	</div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-5"></div>
-    <div class="col-xs-2">
-      <%= link_to "注文を確定する", complete_public_orders_path, class:"btn btn-success active center-block" %>
-    </div>
-    <div class="col-xs-5"></div>
-  </div>
-</div>
-
-<%= form_with model: order, url: thanks_public_orders_path, method: :post, local: true do |f| %>
+<%= form_with model: @order, url: thanks_public_orders_path, method: :post, local: true do |f| %>
+	<%= f.hidden_field :payment, value: @item.id %>
+	<%= f.hidden_field :address %>
+	<%= f.submit "注文を確定する", class:"btn btn-success active center-block" %>
+<% end %>

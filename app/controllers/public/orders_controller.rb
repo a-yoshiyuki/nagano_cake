@@ -34,6 +34,13 @@ class Public::OrdersController < ApplicationController
     def show
     end
 
+    def thanks
+      @order = Order.new(order_params)
+      @
+      @order.save
+      redirect_to complete_public_orders_path
+    end
+
   private
     def order_params
       params.require(:order).permit(:customer_id, :payment, :address, :postal_code)
