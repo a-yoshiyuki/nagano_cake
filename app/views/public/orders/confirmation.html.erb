@@ -93,7 +93,7 @@
 </div>
 
 <%= form_with model: @order, url: thanks_public_orders_path, method: :post, local: true do |f| %>
-	<%= f.hidden_field :payment, value: @item.id %>
-	<%= f.hidden_field :address %>
+	<%= f.hidden_field :payment, value: @order.payment %>
+	<%= f.hidden_field :status, value: @order.status %>
 	<%= f.submit "注文を確定する", class:"btn btn-success active center-block" %>
 <% end %>

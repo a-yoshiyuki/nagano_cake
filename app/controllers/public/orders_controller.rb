@@ -36,7 +36,9 @@ class Public::OrdersController < ApplicationController
 
     def thanks
       @order = Order.new(order_params)
-      @
+      @order.customer_id = current_customer.id
+      @order.status = 0
+      #@order.payment = params[:order][:payment]
       @order.save
       redirect_to complete_public_orders_path
     end
