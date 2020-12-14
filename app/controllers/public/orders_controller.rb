@@ -40,6 +40,9 @@ class Public::OrdersController < ApplicationController
       @order.status = 0
       #@order.payment = params[:order][:payment]
       @order.save
+      
+      @order_items = current_customer.cart_items
+      @order_items.item_id =  
       redirect_to complete_public_orders_path
     end
 
