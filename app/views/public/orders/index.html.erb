@@ -13,28 +13,22 @@
 		  <table class="table table-bordered">
 		    <tbody>
   			　<tr>
-  				<th>注文日</th>
-  				<th>配送先</th>
-          <th>支払金額</th>
-  			  <th>注文詳細</th>
+  				<th>宛名</th>
+  				<th>支払金額</th>
   			  </tr>
-			　<% current_customer.cart_items.each do |cart_item| %>
+			　<% @orders.each do |order| %>
       			  <tr>
       				<td>
-        			　<%= attachment_image_tag (cart_item.item), :image, size: "50x50", fallback: "no_image.jpg" %>
-      				　<span><%= cart_item.item.name %></span>
+      					<%= order.name %>
       				</td>
       				<td>
-        			　￥<%= cart_item.item.syouhizei.to_s(:delimited) %>
+      					<%= order.billing_amount %>
       				</td>
       				<td>
-        			  <%= cart_item.amount %>
-      				</td>
-      				<td>
-      				  ￥<%= cart_item.syoukei.to_s(:delimited) %>
+      					<%= link_to "詳細", public_order_path(order) %>
       				</td>
       			　</tr>
-              <% end %>
+        <% end %>
 		    </tbody>
 		  </table>
 		</div>
