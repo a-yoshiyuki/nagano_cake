@@ -29,7 +29,15 @@ class Public::OrdersController < ApplicationController
       @order.customer_id = current_customer.id
       @order.status = 0
 
-      #@order.payment = params[:order][:payment]
+      #total_price = 0
+      #total_amount = 0
+      #current_customer.cart_items do |ci|
+        #total_price += ci.item.price
+        #total_amount += ci.amount
+      #end
+
+      #@order.billing_amount = (total_price * total_amount * 1.1 + 800).round(0)
+      #計算で請求金額を保存する場合は32~39
       @order.save
 
 
@@ -56,6 +64,7 @@ class Public::OrdersController < ApplicationController
 
     def show
       @order = Order.find(params[:id])
+      
     end
 
 
