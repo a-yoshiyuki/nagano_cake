@@ -41,7 +41,7 @@
 		    <tbody>
 		      <tr>
 		        <td>
-                  送料
+              送料
 		        </td>
 		        <td>
 		          800円
@@ -95,5 +95,6 @@
 <%= form_with model: @order, url: thanks_public_orders_path, method: :post, local: true do |f| %>
 	<%= f.hidden_field :payment, value: @order.payment %>
 	<%= f.hidden_field :status, value: @order.status %>
+	<%= f.hidden_field :billing_amount, value: @total_price %>
 	<%= f.submit "注文を確定する", class:"btn btn-success active center-block" %>
 <% end %>
