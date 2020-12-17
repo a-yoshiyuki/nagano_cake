@@ -72,3 +72,37 @@
     </div>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-7">
+      <table class="table table-bordered">
+        注文内容
+        <tbody>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+          <% @order.order_items.each do |order_items| %>
+            <tr>
+              <td>
+                <%= order_items.item.name %>
+              </td>
+              <td>
+                <%= (order_items.purchase_price * 1.1).round(0) %>
+              </td>
+              <td>
+                <%= order_items.quantity %>
+              </td>
+              <td>
+                <%= (order_items.purchase_price * order_items.quantity.to_i * 1.1).round(0) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
