@@ -48,7 +48,7 @@
               商品合計
             </th>
             <td>
-
+              ￥<%= @order_item_price.to_s(:delimited) %>
             </td>
           </tr>
           <tr>
@@ -64,7 +64,7 @@
               ご請求金額
             </th>
             <td>
-              ￥<%= @order.billing_amount %>
+              ￥<%= @total_price.to_s(:delimited) %>
             </td>
           </tr>
         </tbody>
@@ -97,7 +97,7 @@
                 <%= order_items.quantity %>
               </td>
               <td>
-                <%= (order_items.purchase_price * order_items.quantity.to_i * 1.1).round(0) %>
+                ￥<%= order_items.syoukei.to_s(:delimited) %>
               </td>
             </tr>
           <% end %>
