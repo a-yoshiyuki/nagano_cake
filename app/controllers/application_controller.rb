@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       admin_orders_path
      when Customer
       if resource.is_active == false
-        reset_session　#ログインしたユーザーが退会済みだったら強制的にログアウトさせる
+        reset_session
         public_root_path
 
       else

@@ -8,6 +8,8 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :addresses
 
+  enum is_active: { 有効: true, 退会: false }
+
   def full_name
     self.first_name + "　" + self.last_name
   end
