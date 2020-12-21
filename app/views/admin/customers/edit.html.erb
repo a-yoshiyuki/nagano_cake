@@ -77,6 +77,21 @@
     </div>
 
     <div class="row">
+      <div class="col-xs-3">
+        <h5>会員ステータス</h5>
+      </div>
+		  <div class="col-xs-4 col-xs-offset-1">
+        <% Customer.is_active.each do |is_active| %>
+          <div class="form-check">
+            <%= f.radio_button :is_active, is_active[true], class: "form-check-input" %>
+            <%= f.label is_active[true], class: "form-check-label" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-3 col-xs-offset-1"></div>
+    </div>
+
+    <div class="row">
       <div class="col-xs-3"></div>
 		    <div class="col-xs-4 col-xs-offset-1">
           <%= f.submit "変更を保存", class:"btn btn-primary col-xs-12" %>

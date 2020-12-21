@@ -1,4 +1,6 @@
 class Public::CartItemsController < ApplicationController
+
+
   def index
     @costmer = current_customer
     @cart_items = @costmer.cart_items
@@ -8,7 +10,7 @@ class Public::CartItemsController < ApplicationController
     current_customer.cart_items.each do |price|
       @cart_item_price += (price.amount * price.item.price * 1.1).round(0)
     end
-    
+
   end
 
   def create
