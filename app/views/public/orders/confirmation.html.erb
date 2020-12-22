@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+		<div class="col-xs-10 col-xs-offset-2">
+      <h2>注文情報確認</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+		  <table class="table table-bordered">
+		    <tbody>
+			　<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+	        <th>数量</th>
+				  <th>小計</th>
+			  </tr>
+			　<% current_customer.cart_items.each do |cart_item| %>
+      			  <tr>
+      				<td>
+        			　<%= attachment_image_tag (cart_item.item), :image, size: "50x50", fallback: "no_image.jpg" %>
+      				　<span><%= cart_item.item.name %></span>
+      				</td>
+      				<td>
+        			　￥<%= cart_item.item.syouhizei.to_s(:delimited) %>
+      				</td>
+      				<td>
+        			  <%= cart_item.amount %>
+      				</td>
+      				<td>
+      				  ￥<%= cart_item.syoukei.to_s(:delimited) %>
+      				</td>
+      			　</tr>
+              <% end %>
+		    </tbody>
+		  </table>
+		  <table class="table table-bordered">
+		    <tbody>
+		      <tr>
+		        <td>
+              送料
+		        </td>
+		        <td>
+		          ¥800
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		          商品合計
+		        </td>
+		        <td>
+                  ￥<%= @cart_item_price.to_s(:delimited) %>
+		        </td>
+		      </tr>
+		      <tr>
+		        <td>
+		          請求金額
+		        </td>
+		        <td>
+                  ￥<%= @total_price.to_s(:delimited) %>
+		        </td>
+		      </tr>
+		    </tbody>
+		  </table>
+	  </div>
+	  <div class="col-xs-1"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+	    支払方法
+	  </div>
+	  <div class="col-xs-2">
+	    <%= @order.payment %>
+	  </div>
+	</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+     	お届け先
+    </div>
+    <div class="col-xs-2">
+      <%= current_customer.address %></br>
+      <%= current_customer.full_name %>
+    </div>
+	</div>
+</div>
+
+<%= form_with model: @order, url: thanks_public_orders_path, method: :post, local: true do |f| %>
+	<%= f.hidden_field :payment, value: @order.payment %>
+	<%= f.hidden_field :status, value: @order.status %>
+	<%= f.hidden_field :billing_amount, value: @total_price %>
+	<%= f.submit "注文を確定する", class:"btn btn-success active center-block" %>
+<% end %>

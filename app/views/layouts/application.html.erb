@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +9,46 @@
   </head>
 
   <body>
+    <header class="navbar navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <h3 class="title">ながのCAKE</h3>
+        </nav>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if admin_signed_in? %>
+              <li><%=link_to "商品一覧", admin_items_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "会員一覧", admin_customers_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "注文履歴一覧", admin_orders_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+
+            <% elsif customer_signed_in? %>
+              <p class="navbar-text">ようこそ、<%= current_customer.full_name %>さん！</p>
+                <li><%=link_to "マイページ", public_customers_path, class:"btn btn-info btn-block font-color" %></li>
+                <li><%=link_to "商品一覧", public_items_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "カート",  public_cart_items_path(current_customer), class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"btn btn-info btn-block font-color" %></li>
+            <% else %>
+              <li><%=link_to "About", public_homes_about_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "商品一覧", public_items_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "新規登録", new_customer_registration_path, class:"btn btn-info btn-block font-color" %></li>
+              <li><%=link_to "ログイン", new_customer_session_path, class:"btn btn-info btn-block font-color" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container">
+  	    <div class="row">
+    	    <div class="col-xs-3 col-xs-offset-9">
+    		    <p>CopyRight Infratop.inc</p>
+    	    </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+

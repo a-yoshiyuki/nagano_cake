@@ -1,0 +1,16 @@
+
+<h1>商品一覧</h1>
+<table>
+
+  <tbody>
+  	<% @items.each do |f| %>
+  	  <%= attachment_image_tag (f), :image, :fill, 100, 100 %>
+  	  <%= link_to public_item_path(f) do %>
+  		<%= f.name %>
+  	  <% end %>
+  	  ￥<%= f.price.to_s(:delimited) %>
+	<% end %>
+	<%= paginate @items %>
+  </tbody>
+
+</table>

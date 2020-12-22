@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+		<div class="col-xs-10 col-xs-offset-2">
+      <h1>商品編集</h1>
+    </div>
+  </div>
+  <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+          <div class="row">
+            <div class="col-xs-3"></div>
+		          <div class="col-xs-4 col-xs-offset-1">
+		            <h5>商品画像</h5>
+                <div class="form-group has-icon">
+                  <label class="control-label sr-only" for="inputEmail">ItemImage</label>
+                  <%= f.attachment_field :image %>
+                </div>
+              </div>
+              <div class="col-xs-3 col-xs-offset-1"></div>
+          </div>
+
+        <div class="row">
+          <div class="col-xs-3"></div>
+		        <div class="col-xs-4 col-xs-offset-1">
+              <h5>商品名</h5>
+              <%= f.text_field :name, class:"col-xs-12" %>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3"></div>
+		        <div class="col-xs-4 col-xs-offset-1">
+              <h5>商品説明</h5>
+              <%= f.text_area :introduction, class:"col-xs-12" %>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3"></div>
+		        <div class="col-xs-4 col-xs-offset-1">
+              <h5>税抜価格</h5>
+              <%= f.text_field :price, class:"col-xs-12" %>
+            </div>
+          <div class="col-xs-3 col-xs-offset-1"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3"></div>
+		        <div class="col-xs-4 col-xs-offset-1">
+              <%= f.submit "変更を保存", class:"btn btn-primary col-xs-12" %>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1"></div>
+        </div>
+  <% end %>
+</div>
+
+
