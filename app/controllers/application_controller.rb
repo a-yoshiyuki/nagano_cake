@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
      when Admin
       admin_orders_path
      when Customer
-      if resource.is_active == false
+      if resource.is_active == '退会'
         reset_session
         public_root_path
 
       else
-      public_customer_path(resource)
+      public_customers_path(resource)
       end
 
     end
