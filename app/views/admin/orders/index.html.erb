@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-2">
+      <h2>注文履歴一覧</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-2">
+      <table class="table table-striped">
+      	<thead>
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        	<% @orders.each do |order| %>
+        		<tr>
+        			<td>
+        			  <%= link_to admin_order_path(order) do %>
+        			    <%= order.created_at %>
+        			  <% end %>
+        			</td>
+        			<td>
+        			  <%= order.customer.full_name_no_space %>
+        			</td>
+        			<td>
+        			  <% @quantity = 0 %>
+        			  <% order.order_items.each do |item| %>
+        			    <% @quantity += item.quantity.to_i %>
+        			  <% end %>
+        			  <%= @quantity %>
+        			</td>
+        		</tr>
+      		<% end %>
+        </tbody>
+      </table>
+        <%= paginate @orders %>
+    </div>
+  </div>
+</div>

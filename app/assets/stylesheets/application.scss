@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ .title {
+  color: white;
+ }
+
+ .font-color {
+  color: #666666;
+}
+
+.about {
+ text-align: center;
+ font-size: 100px;
+}
+
+.about_main {
+ text-align: center;
+ font-size: 30px;
+}
+
+.about_img {
+ text-align: center;
+}
+
+.main_visual {
+ width: 500px;
+ height: 300px;
+ background-size: cover;
+ background-position: center;
+ background-image: url('りんご.jpeg');
+}
+
+.main_visual_content {
+ padding: 105px 80px;
+ color: black;
+}
+
+.thanks {
+ text-align: center;
+}
+
+.item_name {
+ font-size: 25px;
+}
+
+.item_price {
+ font-size: 20px;
+}
+

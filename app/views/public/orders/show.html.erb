@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+	<div class="col-xs-10 col-xs-offset-2">
+      <h2>注文履歴詳細</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-5">
+        <table class="table table-bordered">
+          注文情報
+          <tbody>
+            <tr>
+              <th>
+                注文日
+              </th>
+              <td>
+                <%= @order.created_at %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                配送先
+              </th>
+              <td>
+                <%= current_customer.address %>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                支払方法
+              </th>
+              <td>
+                <%= @order.payment %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class="col-xs-3">
+      <table class="table table-bordered">
+        請求情報
+        <tbody>
+          <tr>
+            <th>
+              商品合計
+            </th>
+            <td>
+              ￥<%= @order_item_price.to_s(:delimited) %>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              送料
+            </th>
+            <td>
+              ￥800
+            </td>
+          </tr>
+          <tr>
+            <th>
+              ご請求金額
+            </th>
+            <td>
+              ￥<%= @total_price.to_s(:delimited) %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-7">
+      <table class="table table-bordered">
+        注文内容
+        <tbody>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+          <% @order.order_items.each do |order_items| %>
+            <tr>
+              <td>
+                <%= order_items.item.name %>
+              </td>
+              <td>
+                <%= order_items.tannka.to_s(:delimited) %>
+              </td>
+              <td>
+                <%= order_items.quantity %>
+              </td>
+              <td>
+                ￥<%= order_items.syoukei.to_s(:delimited) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
