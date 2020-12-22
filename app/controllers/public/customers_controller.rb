@@ -2,10 +2,17 @@ class Public::CustomersController < ApplicationController
 
 
   def show
+    @customer = current_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
+  end
+
+  def update
+    @customer = current_customer
+    @customer.update(customer_params)
+    redirect_to public_customers_path(@customer)
   end
 
   def unsubscribe
@@ -13,9 +20,8 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    #@customer.is_active = false　下のupdateの（）内に入っているので書く必要なし
-    @customer.update(is_active: false)#（）内に更新したい情報のみ入れる　(is_active[カラム]: false[データ])
-    reset_session #ログイン情報だけを消す　ログインの前に戻す
+    @customer.update(is_active: '退会')
+    reset_session
     redirect_to public_root_path
   end
 
