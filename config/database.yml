@@ -22,11 +22,4 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['nagano_cake'] %>
-  adapter: mysql2
-  encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_general_ci
-  host: <%= ENV['rds-mysql-server.cwbpnqe3xsom.ap-northeast-1.rds.amazonaws.com'] %>
-  username: <%= ENV['a.yoshiyuki'] %>
-  password: <%= ENV['Sileighty3285'] %>
+  database: db/production.sqlite3
